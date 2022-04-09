@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="./CSS/home.css">
+    <link rel="stylesheet" href="./CSS/main.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,11 +19,14 @@
       </ul>
 	</header>
     <div class="container">
-        <button onclick="LogData()" class="button" >Submit file</button>
+        
+        <input class="button" type="file" onchange="LogData(this)">
         <div class="transbox">
         <div class="transcript" id="transcript">transcipt</div>
         </div>
     </div>
-    <script src="/main.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://github.com/form-data/form-data"></script>
 </body>
 </html>
