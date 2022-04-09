@@ -139,8 +139,18 @@ a {
   transcription box
 ==================================== */
 .transcript {
+  position: relative;
   background: white;
   border-radius: 4px;
   text-align: justify;
+  top: 40px;
+  padding: 80px;
+  background-size: 30px 30px;
+  background-position: 11px 8px;
+  background-repeat: no-repeat;
+}
+
+.container {
+  background-color: #484b4e;
 }
 /*# sourceMappingURL=home.css.map */
