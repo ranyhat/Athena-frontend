@@ -1,4 +1,4 @@
-window.LogData =function readfile(input)
+async function readfile(input)
 { 
   transcriptEl=document.getElementById("transcript")
     
@@ -26,15 +26,25 @@ var audio_file = file;
 form_data = new FormData();
 form_data.append('file', input.files[0]);
 
-// using Axios fot the HTTP POST request
-const res = axios.post('https://test-athena1.herokuapp.com/uploadfile/', form_data).then(res => {
-    console.log("Successfully sent");
-    console.log("Status Code: " + res.status);
-    console.log("Body: ", res.data.Transcript); // MCIT API returns a JSON object which looks like this: {'transcript' : "الحمدلله"}
-    document.getElementById("transcript").textContent=res.data.Transcript
+upload(form_data);
+};
+
+function upload(form_data)
+{
+  // using Axios fot the HTTP POST request
+const res = axios.post('https://athena-a6clm7lhrq-oa.a.run.app/classify', form_data).then(res => {
+  console.log("Successfully sent");
+  console.log("Status Code: " + res.status);
+  console.log("Body: ", res.data[0]); // MCIT API returns a JSON object which looks like this: {'transcript' : "الحمدلله"}
+  document.getElementById("trans").textContent="Transcript= " + res.data[0].Transcript
+  document.getElementById("senti").textContent="Sentiment= " + res.data[0].Sentiment
+  document.getElementById("Score").textContent="Score= " + res.data[0].Score
 }).catch(err => {
-    console.log("Error: " + err);
+  console.log("Error: " + err);
 })
 
 };
 
+function popup(){
+  alert("Your file has been sucessfully uploaded, Please wait for the analysis");
+}
