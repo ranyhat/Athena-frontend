@@ -4,40 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="bootstrap.css">
 </head>
 <body>
+    
      <!-- Navigation Bar -->
-    <nav id="home" class="navbar navbar-expand-* bg-secondary bg-gradient navbar-dark py-2">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><h4 class="text-primary">ATHENA</h4></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-              <div class="offcanvas-header bg-secondary bg-gradient">
-                <h5 class="offcanvas-title text-primary" id="offcanvasNavbarLabel">ATHENA</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body bg-dark">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#about-us">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#demo">Demo</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Contact Us</a>
-                  </li>
-              </div>
+    <nav id="home" class="navbar navbar-expand-md bg-secondary bg-gradient navbar-dark py-2 position: relative">
+        <div class="container">
+            <a href="#home" class="navbar-brand"> <h2 class="text-primary">ATHENA</h2></a>
+                <button class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"> 
+                            <a href="#about-us" class="nav-link"><h5>About Us</h5></a>
+                        </li>   
+                        <li class="nav-item">
+                            <a href="#doc" class="nav-link"><h5>Documentation</h5></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#demo" class="nav-link"><h5>Demo</h5></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link"><h5>Contact Us</h5></a>
+                        </li>
+                    </ul>
             </div>
-          </div>
+        </div>
     </nav>
 
 
@@ -54,7 +52,7 @@
                 <p class="my-5"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident minus nemo harum eos dicta et, culpa ducimus quod quasi, enim, minima doloremque cumque assumenda ea. Expedita esse cupiditate voluptate quia.</p>
                 <p class="my-5"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident minus nemo harum eos dicta et, culpa ducimus quod quasi, enim, minima doloremque cumque assumenda ea. Expedita esse cupiditate voluptate quia.</p>
                </div>
-               <img class="img-fluid w-50 h-50 d-none d-md-block" src="./imgs/pngwing.com.png" alt="">
+               <img class="img-fluid w-50 h-50 d-none d-md-block my-5" src="./imgs/pngwing.com.png" alt="">
            </div>
        </div>
     </section>
@@ -69,7 +67,10 @@
         </div>
     </section>
 
+
     
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

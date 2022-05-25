@@ -12,35 +12,33 @@
 
 
      <!-- Navigation Bar -->
-     <nav class="navbar navbar-expand-* bg-secondary bg-gradient navbar-dark py-2">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><h4 class="text-primary">ATHENA</h4></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+     <nav id="home" class="navbar navbar-expand-md bg-secondary bg-gradient navbar-dark py-2">
+      <div class="container">
+          <a href="./index.html" class="navbar-brand"> <h2 class="text-primary">ATHENA</h2></a>
+              <button class="navbar-toggler" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navmenu">
               <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-              <div class="offcanvas-header bg-secondary bg-gradient">
-                <h5 class="offcanvas-title text-primary" id="offcanvasNavbarLabel">ATHENA</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body bg-dark">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./Demo.html#about-us">About Us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">Demo</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                  </li>
-              </div>
-            </div>
+              </button>
+              <div class="collapse navbar-collapse" id="navmenu">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"> 
+                          <a href="/index.html#about-us" class="nav-link"><h5>About Us</h5></a>
+                      </li>   
+                      <li class="nav-item">
+                          <a href="#doc" class="nav-link"><h5>Documentation</h5></a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#demo" class="nav-link"><h5>Demo</h5></a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#contact" class="nav-link"><h5>Contact Us</h5></a>
+                      </li>
+                  </ul>
           </div>
-    </nav>
+      </div>
+  </nav>
 
 
     <!-- Demo Audio -->
