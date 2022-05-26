@@ -29,10 +29,58 @@ form_data.append('file', input.files[0]);
 upload(form_data);
 };
 
+
+var transcripts = []
+var sentiments = []
+var scores = []
+
 function upload(form_data)
 {
   // using Axios fot the HTTP POST request
 const res = axios.post('https://athena-a6clm7lhrq-oa.a.run.app/classify', form_data).then(res => {
+  console.log("Successfully sent");
+  console.log("Status Code: " + res.status);
+  console.log("Body: ", res.data[0]); // MCIT API returns a JSON object which looks like this: {'transcript' : "الحمدلله"}
+  for(let i=0;i<res.data.length;i++)
+  {
+    transcripts.push(res.data[i].Transcript) 
+    sentiments.push(res.data[i].Sentiment) 
+    scores.push(res.data[i].Score) 
+  }
+ 
+  for(let j=0;j<5;j++)
+  {const k=0
+    k+=1
+    document.getElementById("trans").textContent="Transcript= " + res.data[0].Transcript
+  		document.getElementById("senti").textContent="Sentiment= " + res.data[0].Sentiment
+  		document.getElementById("Score").textContent="Score= " + res.data[0].Score + " " + j
+      document.getElementById("count").textContent="count= " + k
+      console.log(k)
+      
+  }
+  // document.getElementById("trans").textContent="Transcript= " + res.data[i].Transcript
+  // 		document.getElementById("senti").textContent="Sentiment= " + res.data[i].Sentiment
+  // 		document.getElementById("Score").textContent="Score= " + res.data[i].Score
+}).catch(err => {
+  console.log("Error: " + err);
+})
+
+};
+
+function popup(){
+  alert("Your file has been sucessfully uploaded, Please wait for the analysis");
+}
+
+
+//text upload
+function upload_text(form_data)
+{
+  const transcript_man = document.getElementById("manual-trans");
+  console.log(transcript_man.value)
+  const myJSON = JSON.stringify(transcript_man.value);
+  console.log(myJSON)
+  // using Axios fot the HTTP POST request
+const res = axios.post('https://athena-a6clm7lhrq-oa.a.run.app/classify',myJSON ).then(res => {
   console.log("Successfully sent");
   console.log("Status Code: " + res.status);
   console.log("Body: ", res.data[0]); // MCIT API returns a JSON object which looks like this: {'transcript' : "الحمدلله"}
@@ -44,7 +92,3 @@ const res = axios.post('https://athena-a6clm7lhrq-oa.a.run.app/classify', form_d
 })
 
 };
-
-function popup(){
-  alert("Your file has been sucessfully uploaded, Please wait for the analysis");
-}
