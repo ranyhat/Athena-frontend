@@ -44,8 +44,9 @@
     <!-- Demo Audio -->
     <section id="demo" class=" bg-dark text-light p-5 p-lg-5 pt-lg-5 p-sm-0 text-sm-start ">
         <div class="container p-3">
-            <h1 class="text-warning pb-5">Record or upload your own voice sample</h1>
-            <button id="recordButton">Record</button>
+            <div class="align-text-center justify-content-between">
+                <h1 class="text-warning pb-5">Record or upload your own voice sample</h1>
+                <button id="recordButton">Record</button>
                     <button id="pauseButton" disabled>Pause</button>
                     <button id="stopButton" disabled>Stop</button>
                     <div id="formats">Format: start recording to see sample rate</div>
@@ -58,15 +59,18 @@
                         <p class="Score" id="Score">Score:</p>
                         <p class="count" id="count">counter:</p>    
                     </div>
+            </div>
         </div>
     </section>
 
     <!-- Demo text -->
     <section class="bg-dark text-light  p-5 p-lg-5 pt-lg-5 p-sm-0 text-sm-start">
         <div class="container p-3">
+            <div class="align-text-center justify-content-between">
             <h1 class="text-warning pb-5">Write your own transciption for analysis</h1>
             <textarea name="Transcript_box" id="manual-trans" cols="56" rows="5" placeholder="Entet text here.."></textarea>
             <button onclick="upload_text(); popup();" class="upload my-0 mx-4 ">Upload</button>
+            </div>
     </section>
 
     <script src="js/main.js"></script>
