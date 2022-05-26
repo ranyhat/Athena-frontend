@@ -42,8 +42,9 @@
 
 
     <!-- Demo Audio -->
-    <section id="demo" class=" bg-dark text-light p-5 p-lg-0 pt-lg-5 text-sm-start">
-        <div class="container p-5 col-xs-10">
+    <section id="demo" class=" bg-dark text-light p-5 p-lg-5 pt-lg-5 p-sm-0 text-sm-start ">
+        <div class="container p-3">
+            <h1 class="text-warning pb-5">Record or upload your own voice sample</h1>
             <button id="recordButton">Record</button>
                     <button id="pauseButton" disabled>Pause</button>
                     <button id="stopButton" disabled>Stop</button>
@@ -55,18 +56,17 @@
                         <p class="trans" id="trans">Transcript:</p>
                         <p class="senti" id="senti">Sentiment:</p>
                         <p class="Score" id="Score">Score:</p>
-                        <p class="count" id="count">counter:</p>
-                    </div>          
+                        <p class="count" id="count">counter:</p>    
+                    </div>
         </div>
     </section>
 
     <!-- Demo text -->
-    <section class="bg-dark text-light  pt-lg-5 text-sm-start">
-        <div class="container col-xs-10">
-            <h1 class="text-warning pb-5">Or you can write your own transciption for analysis</h1>
-            <textarea name="Transcript_box" id="manual-trans" cols="174" rows="5" placeholder="Entet text here.."></textarea>
-            <button onclick="upload_text(); popup();" class="upload">Upload</button>
-        </div>
+    <section class="bg-dark text-light  p-5 p-lg-5 pt-lg-5 p-sm-0 text-sm-start">
+        <div class="container p-3">
+            <h1 class="text-warning pb-5">Write your own transciption for analysis</h1>
+            <textarea name="Transcript_box" id="manual-trans" cols="56" rows="5" placeholder="Entet text here.."></textarea>
+            <button onclick="upload_text(); popup();" class="upload my-0 mx-4 ">Upload</button>
     </section>
 
     <script src="js/main.js"></script>
