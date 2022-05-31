@@ -69,8 +69,6 @@ const res = axios.post('https://athena-a6clm7lhrq-oa.a.run.app/classify', form_d
 
 function popup(){
   alert("Your file has been sucessfully uploaded, Please wait for the analysis");
-  var target = document.getElementById("load");
-  target.textContent= "Your file is being analized"
 }
 
 
