@@ -175,11 +175,10 @@ function createDownloadLink(blob) {
           transcripts.push(res.data[i].Transcript);
           sentiments.push(res.data[i].Sentiment);
           scores.push(res.data[i].Score);
-		  console.log(i)
+		      console.log(i)
         }
 		var k = 0;
         for (let i = 0; i < transcripts.length; i++) {
-          
           k += 1;
           document.getElementById("trans").textContent =
             "Transcript= " +transcripts[i];

@@ -49,8 +49,8 @@ const res = axios.post('https://athena-a6clm7lhrq-oa.a.run.app/classify', form_d
   }
  
   for(let j=0;j<5;j++)
-  {const k=0
-    k+=1
+  {var k=0
+     k+=1
     document.getElementById("trans").textContent="Transcript= " + res.data[0].Transcript
   		document.getElementById("senti").textContent="Sentiment= " + res.data[0].Sentiment
   		document.getElementById("Score").textContent="Score= " + res.data[0].Score + " " + j
@@ -69,26 +69,30 @@ const res = axios.post('https://athena-a6clm7lhrq-oa.a.run.app/classify', form_d
 
 function popup(){
   alert("Your file has been sucessfully uploaded, Please wait for the analysis");
+  var target = document.getElementById("load");
+  target.textContent= "Your file is being analized"
 }
 
 
 //text upload
-function upload_text(form_data)
+function upload_text()
 {
   const transcript_man = document.getElementById("manual-trans");
+  text={"text":transcript_man.value}
   console.log(transcript_man.value)
-  const myJSON = JSON.stringify(transcript_man.value);
+  const myJSON = JSON.stringify(text);
   console.log(myJSON)
   // using Axios fot the HTTP POST request
 const res = axios.post('https://athena-a6clm7lhrq-oa.a.run.app/classify',myJSON ).then(res => {
   console.log("Successfully sent");
   console.log("Status Code: " + res.status);
   console.log("Body: ", res.data[0]); // MCIT API returns a JSON object which looks like this: {'transcript' : "الحمدلله"}
-  document.getElementById("trans").textContent="Transcript= " + res.data[0].Transcript
-  		document.getElementById("senti").textContent="Sentiment= " + res.data[0].Sentiment
-  		document.getElementById("Score").textContent="Score= " + res.data[0].Score
+  document.getElementById("trans-txt").textContent="Transcript= " + res.data[0].Transcript
+  document.getElementById("senti-txt").textContent="Sentiment= " + res.data[0].Sentiment
+  document.getElementById("Score-txt").textContent="Score= " + res.data[0].Score
 }).catch(err => {
   console.log("Error: " + err);
 })
 
 };
+
