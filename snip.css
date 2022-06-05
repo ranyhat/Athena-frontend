@@ -1,0 +1,22 @@
+html {
+  font-family: "Roboto Mono", monospace;
+}
+
+pre {
+  border-radius: 5px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+}
+
+
+/* Style the tab content */
+
+.hide {
+  display:none;
+}
+
+.active{
+  background-color:lightgray;
+}
+
+  

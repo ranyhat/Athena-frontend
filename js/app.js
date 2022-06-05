@@ -130,17 +130,16 @@ function createDownloadLink(blob) {
   //add controls to the <audio> element
   au.controls = true;
   au.src = url;
-
   //save to disk link
   link.href = url;
-  link.download = filename + ".wav"; //download forces the browser to donwload the file using the  filename
-  link.innerHTML = "Save to disk";
+  //link.download = filename + ".wav"; //download forces the browser to donwload the file using the  filename
+  //link.innerHTML = "Save to disk";
 
   //add the new audio element to li
   li.appendChild(au);
 
   //add the filename to the li
-  li.appendChild(document.createTextNode(filename + ".wav "));
+  //li.appendChild(document.createTextNode(filename + ".wav "));
 
   //add the save to disk link to li
   li.appendChild(link);
@@ -162,7 +161,7 @@ function createDownloadLink(blob) {
     var fd = new FormData();
     fd.append("file", blob);
     const res = axios
-      .post("https://athena-a6clm7lhrq-oa.a.run.app/classify", fd)
+      .post("https://athena-a6clm7lhrq-oa.a.run.app/audio", fd)
       .then((res) => {
         console.log("Successfully sent");
         console.log("Status Code: " + res.status);
