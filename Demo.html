@@ -8,6 +8,7 @@
     <title>Demo</title>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="record.css">
+    <script src="https://kit.fontawesome.com/1542ed2aaa.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -51,8 +52,7 @@
             <h1 class="text-primary text-center">Upload or record your own voice sample</h1>
             <div class="row">
                 <div class="col">
-                        <input class="btn-lg btn-secondary text-light bg-gradient" type="file" onchange="readfile(this)">
-                        <button onclick="upload_file; popup();" class="mt-5 btn-lg btn-secondary text-light bg-gradient">Upload</button>
+                        <input class="btn-lg btn-secondary text-light bg-gradient mt-5" type="file" onchange="readfile(this)">
                 </div>
                 <div class="col">
                     <div class="recorder_wrapper mt-3">
@@ -63,9 +63,12 @@
                     </div>
                 </div>
                         <div class="container p-4 bg-muted bg-gradient text-light mt-5 text-sm-left">
-                            <p class="trans" id="trans">Transcript:</p>
-                            <p class="senti" id="senti">Sentiment:</p>
-                            <p class="Score" id="Score">Score:</p>
+                            <p class="Trans" id="trans">Transcript:</p>
+                            <p class="Senti" id="senti">Sentiment:</p>
+                            <p class="Score" id="score">Score:</p>
+                            <div class="text-center" id="loading">
+                                
+                            </div>
                             <p id="load"></p>    
                         </div>
             </div>
@@ -76,14 +79,17 @@
     <section class="bg-dark text-light  p-5 p-lg-5 pt-lg-5 p-sm-0 text-sm-start">
         <div class="container">
             <div class="align-text-center justify-content-between">
-            <h1 class="text-primary pb-5 text-center">Write your own transciption for analysis</h1>
+            <h1 class="text-primary pb-5 text-center">Write your own text for analysis</h1>
             <textarea class="bg-dark bg-gradient text-light" name="Transcript_box" id="manual-trans" cols="173" rows="5" placeholder="Enter text here.."></textarea>
             <button onclick="upload_text();" class="btn-lg btn-secondary text-light bg-gradient mt-3">Upload</button>
             </div>
             <div class="container p-4 bg-muted bg-gradient text-light mt-5 text-sm-left">
                 <p class="trans-txt" id="trans-txt">Transcript:</p>
                 <p class="senti-txt" id="senti-txt">Sentiment:</p>
-                <p class="score-txt" id="Score-txt">Score:</p>
+                <p class="score-txt" id="score-txt">Score:</p>
+                <div class="text-center" id="load-text">
+                                
+                </div>
                 <p id="load"></p>    
             </div>
     </section>
@@ -94,6 +100,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/65360a6776.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/06a903e2f5.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/65360a6776.js" crossorigin="anonymous"></script>
     <script src="js/recorder_test.js"></script>
 </body>
 </html>

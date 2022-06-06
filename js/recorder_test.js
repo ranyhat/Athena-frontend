@@ -44,7 +44,7 @@ if (navigator.mediaDevices.getUserMedia) {
     mediaStream,
     audioSrc,
     type = {
-      type: "audio/wav",
+      type: "audio/ogg,codecs=opus",
     },
     ctx,
     analys,
@@ -184,7 +184,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
   function save() {
     var a = document.createElement("a");
-    a.download = "record.wav";
+    a.download = "record.ogg";
     a.href = audioSrc;
     document.body.appendChild(a);
     a.click();
@@ -202,14 +202,23 @@ if (navigator.mediaDevices.getUserMedia) {
 
 function upload()
 {
+
+    //add spinner
+    document.getElementById('load').innerHTML = '<i class="fa-solid fa-cog fa-spin fa-2x text-center"></i>';
+    document.getElementById('load').classList.add("text-center")
+    document.getElementById("trans").textContent = "";
+    document.getElementById("senti").textContent = "";
+    document.getElementById("score").textContent = "";
     var fd = new FormData();
-    fd.append('file', blob ,'recording.wav')    
+    fd.append('file', blob ,'recording.ogg')    
     const res = axios
     .post("https://athena-a6clm7lhrq-oa.a.run.app/audio", fd)
     .then((res) => {
         console.log("Successfully sent");
         console.log("Status Code: " + res.status);
         console.log("Body: ", res.data[0]); // MCIT API returns a JSON object which looks like this: {'transcript' : "الحمدلله"}
+    //remove_icon
+    document.getElementById('load').innerHTML =""
     
         var transcripts = []
         var sentiments = []
@@ -227,7 +236,7 @@ function upload()
             "Transcript= " +transcripts[i];
         document.getElementById("senti").textContent =
             "Sentiment= " + sentiments[i];
-        document.getElementById("Score").textContent =
+        document.getElementById("score").textContent =
             "Score= " + scores[i];
         // document.getElementById("count").textContent = "count= " + k;
         console.log(k);

@@ -1,5 +1,23 @@
 
 async function readfile(input) {
+  
+var input = document.getElementsByTagName('input')[0];
+
+input.onclick = function () {
+  this.value = null;
+};
+  
+input.onchange = function () {
+  console.log(this.value);
+  transcriptEl = document.getElementById("transcript");
+
+  form_data = new FormData();
+  form_data.append("file", input.files[0]);
+
+   upload_file(form_data)
+};
+
+ 
   transcriptEl = document.getElementById("transcript");
 
   form_data = new FormData();
@@ -13,6 +31,13 @@ var sentiments = [];
 var scores = [];
 
 function upload_file(form_data) {
+
+    //add spinner
+    document.getElementById('load').innerHTML = '<i class="fa-solid fa-cog fa-spin fa-2x text-center"></i>';
+    document.getElementById('load').classList.add("text-center")
+    document.getElementById("trans").textContent = "";
+    document.getElementById("senti").textContent = "";
+    document.getElementById("score").textContent = "";
     // using Axios fot the HTTP POST request
     const res = axios
       .post("https://athena-a6clm7lhrq-oa.a.run.app/audio", form_data)
@@ -27,7 +52,7 @@ function upload_file(form_data) {
         }
         
         //remove_icon
-
+        document.getElementById('load').innerHTML =""
 
         for (let j = 0; j < 5; j++) {
           var k = 0;
@@ -36,7 +61,7 @@ function upload_file(form_data) {
             "Transcript= " + res.data[0].Transcript;
           document.getElementById("senti").textContent =
             "Sentiment= " + res.data[0].Sentiment;
-          document.getElementById("Score").textContent =
+          document.getElementById("score").textContent =
             "Score= " + res.data[0].Score;
           // document.getElementById("count").textContent = "count= " + k;
           console.log(k);
@@ -64,6 +89,15 @@ function upload_text() {
   console.log(transcript_man.value);
   const myJSON = text;
   console.log(myJSON);
+
+  //add spinner
+  document.getElementById('load-text').innerHTML = '<i class="fa-solid fa-cog fa-spin fa-2x text-center"></i>';
+  document.getElementById('load-text').classList.add("text-center")
+  document.getElementById("trans-txt").textContent = "";
+  document.getElementById("senti-txt").textContent = "";
+  document.getElementById("score-txt").textContent = "";
+
+
   // using Axios fot the HTTP POST request
   const res = axios
     .post("https://athena-a6clm7lhrq-oa.a.run.app/text", myJSON)
@@ -71,11 +105,17 @@ function upload_text() {
       console.log("Successfully sent");
       console.log("Status Code: " + res.status);
       console.log("Body: ", res.data[0]); // MCIT API returns a JSON object which looks like this: {'transcript' : "الحمدلله"}
+     
+     
+     //remove_icon
+     document.getElementById('load-text').innerHTML =""
+     
+     
       document.getElementById("trans-txt").textContent =
         "Transcript= " + res.data[0].Text;
       document.getElementById("senti-txt").textContent =
         "Sentiment= " + res.data[0].Sentiment;
-      document.getElementById("Score-txt").textContent =
+      document.getElementById("score-txt").textContent =
         "Score= " + res.data[0].Score;
     })
     .catch((err) => {
