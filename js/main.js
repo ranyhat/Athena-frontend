@@ -1,26 +1,18 @@
-var x = "";
-var  form_data = ""
+
 async function readfile(input) {
   transcriptEl = document.getElementById("transcript");
 
   form_data = new FormData();
   form_data.append("file", input.files[0]);
 
-  function icon()
-  {
-
-  }
-
-  
-   upload(form_data)
+   upload_file(form_data)
 }
 
 var transcripts = [];
 var sentiments = [];
 var scores = [];
 
-function upload(form_data) {
-  if (x != "") {
+function upload_file(form_data) {
     // using Axios fot the HTTP POST request
     const res = axios
       .post("https://athena-a6clm7lhrq-oa.a.run.app/audio", form_data)
@@ -56,7 +48,7 @@ function upload(form_data) {
       .catch((err) => {
         console.log("Error: " + err);
       });
-  }
+  
 }
 
 function popup() {
