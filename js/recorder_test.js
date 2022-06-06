@@ -229,7 +229,7 @@ function upload()
             "Sentiment= " + sentiments[i];
         document.getElementById("Score").textContent =
             "Score= " + scores[i];
-        document.getElementById("count").textContent = "count= " + k;
+        // document.getElementById("count").textContent = "count= " + k;
         console.log(k);
         }
     })

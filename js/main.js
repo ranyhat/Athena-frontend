@@ -37,8 +37,8 @@ function upload_file(form_data) {
           document.getElementById("senti").textContent =
             "Sentiment= " + res.data[0].Sentiment;
           document.getElementById("Score").textContent =
-            "Score= " + res.data[0].Score + " " + j;
-          document.getElementById("count").textContent = "count= " + k;
+            "Score= " + res.data[0].Score;
+          // document.getElementById("count").textContent = "count= " + k;
           console.log(k);
         }
         // document.getElementById("trans").textContent="Transcript= " + res.data[i].Transcript
