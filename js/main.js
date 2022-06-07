@@ -72,6 +72,14 @@ function upload_file(form_data) {
       })
       .catch((err) => {
         console.log("Error: " + err);
+         //remove_icon
+         document.getElementById('load').innerHTML =""
+         document.getElementById("trans").textContent = "Transcript= ";
+         document.getElementById("senti").textContent = "Sentiment= ";
+         document.getElementById("score").textContent = "Score= ";
+         alert(
+           "No speech detected please try again"
+         );
       });
   
 }
@@ -120,6 +128,14 @@ function upload_text() {
     })
     .catch((err) => {
       console.log("Error: " + err);
+       //remove_icon
+       document.getElementById('load-text').innerHTML =""
+       document.getElementById("trans-txt").textContent = "Transcript= ";
+       document.getElementById("senti-txt").textContent = "Sentiment= ";
+       document.getElementById("score-txt").textContent = "Score= ";
+       alert(
+         "No text detected please try again"
+       );
     });
 }
 
@@ -160,8 +176,15 @@ function email() {
     .then((res) => {
       console.log("Successfully sent");
       console.log("Status Code: " + res.status);
+      alert(
+        "Email successfully sent !"
+      );
     })
     .catch((err) => {
       console.log("Error: " + err);
+       //remove_icon
+       alert(
+         "Invalid data please try again"
+       );
     });
 }

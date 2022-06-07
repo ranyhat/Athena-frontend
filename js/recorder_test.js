@@ -245,6 +245,14 @@ function upload()
     .catch((err) => {
         console.log(res);
         console.log("Error: " + err);
+        //remove_icon
+        document.getElementById('load').innerHTML =""
+        document.getElementById("trans").textContent = "Transcript= ";
+        document.getElementById("senti").textContent = "Sentiment= ";
+        document.getElementById("score").textContent = "Score= ";
+        alert(
+          "No speech detected please try again"
+        );
     });
     
 
