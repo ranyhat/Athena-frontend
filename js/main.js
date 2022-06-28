@@ -139,21 +139,7 @@ function upload_text() {
     });
 }
 
-//highlighting the code snippets
-document.addEventListener("DOMContentLoaded", (event) => {
-  document.querySelectorAll("pre code").forEach((el) => {
-    hljs.highlightElement(el);
-  });
-});
 
-function switchNode() {
-  //highlighting the code snippets
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.querySelectorAll("pre code").forEach((el) => {
-      hljs.highlightElement(el);
-    });
-  });
-}
 
 function email() {
   const first = document.getElementById("firstName").value;
@@ -179,6 +165,7 @@ function email() {
       alert(
         "Email successfully sent !"
       );
+      
     })
     .catch((err) => {
       console.log("Error: " + err);
