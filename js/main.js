@@ -156,6 +156,11 @@ function email() {
   };
   console.log(pk);
   const myJSON = pk;
+  
+  document.getElementById("firstName").value="";
+  document.getElementById("lastName").value="";
+  document.getElementById("emailInfo").value="";
+
 
   const res = axios
     .post("https://athena-a6clm7lhrq-oa.a.run.app/email", myJSON)
