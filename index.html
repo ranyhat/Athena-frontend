@@ -153,11 +153,12 @@
               <div class="col">
                 <div class="container">
                     <div id="snippet-container">
-                      <button class="tablinks active w-24 h-10 btn-lg btn-dark text-light" onclick="swapTab(event, 'HTML')">Node</button>
-                      <button class="tablinks w-24 h-10 btn-lg btn-dark text-ligh" onclick="swapTab(event, 'CSS')">Python</button>
+                      <button class="tablinks active w-24 h-10 btn-lg btn-dark text-light" onclick="swapTab(event, 'node')">Node</button>
+                      <button class="tablinks w-24 h-10 btn-lg btn-dark text-light" onclick="swapTab(event, 'python')">Python</button>
+                      <button class="tablinks w-24 h-10 btn-lg btn-dark text-light" onclick="swapTab(event,'dart')" >Dart</button>
                       <hr>
                     </div>
-                    <div id="HTML" class="tabcontent">
+                    <div id="node" class="tabcontent">
                       <pre>
                         <code class="language-js">
 const fs = require('fs');
@@ -187,7 +188,7 @@ const res = axios.post(API_path, form_data, {
                         </code>
                       </pre>
                     </div>
-                    <div id="CSS" class="tabcontent hide">
+                    <div id="python" class="tabcontent hide">
                       <pre>
                             <code class="language-python">
 import requests
@@ -208,12 +209,49 @@ try:
     print("Body:", response[0]['Transcript'], "\nSentiment:",
             response[0]['Sentiment'], "\nScore:", response[0]['Score'])
 except:
-    print("Error")           
+    print("Error")      
+    
+    
+
+
                 </code>
                 
                 </pre>
                     </div>
-                
+
+                <div id="dart" class="tabcontent hide">
+                    <pre>
+                        <code class="language-dart">
+import 'package:main/main.dart' as main;
+import 'dart:io';
+import 'package:dio/dio.dart';
+import 'package:path/path.dart';
+
+Future<void> main(List<String> arguments) async {
+    var url = "https://athena-a6clm7lhrq-oa.a.run.app/audio";
+    String filePath = './audio.wav';
+    String fileName = filePath.split('/').last;
+
+    Dio dio = new Dio();
+
+    FormData data = FormData.fromMap({
+    "file": await MultipartFile.fromFile(
+        filePath,
+        filename: fileName,
+    ),
+    });
+
+    dio.post(url, data: data).then((response) {
+    print(response.data[0]['Transcript']);
+    print(response.data[0]['Sentiment']);
+    print(response.data[0]['Score'].toString());
+    }).catchError((error) {
+    print(StateError);
+    });
+}           
+                        </code>
+                    </pre>
+                </div>
                   </div>
               </div>
             </div>
