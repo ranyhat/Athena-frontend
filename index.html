@@ -221,34 +221,34 @@ except:
 
                 <div id="dart" class="tabcontent hide">
                     <pre>
-                        <code class="language-dart">
-import 'package:main/main.dart' as main;
-import 'dart:io';
-import 'package:dio/dio.dart';
-import 'package:path/path.dart';
+                          <code class="language-dart">
+  import 'package:main/main.dart' as main;
+  import 'dart:io';
+  import 'package:dio/dio.dart';
+  import 'package:path/path.dart';
 
-Future<void> main(List<String> arguments) async {
-    var url = "https://athena-a6clm7lhrq-oa.a.run.app/audio";
-    String filePath = './audio.wav';
-    String fileName = filePath.split('/').last;
+  Future<void> main(List<String> arguments) async {
+        var url = "https://athena-a6clm7lhrq-oa.a.run.app/audio";
+        String filePath = './audio.wav';
+        String fileName = filePath.split('/').last;
 
-    Dio dio = new Dio();
+        Dio dio = new Dio();
 
-    FormData data = FormData.fromMap({
-    "file": await MultipartFile.fromFile(
-        filePath,
-        filename: fileName,
-    ),
-    });
+        FormData data = FormData.fromMap({
+        "file": await MultipartFile.fromFile(
+            filePath,
+            filename: fileName,
+        ),
+        });
 
-    dio.post(url, data: data).then((response) {
-    print(response.data[0]['Transcript']);
-    print(response.data[0]['Sentiment']);
-    print(response.data[0]['Score'].toString());
-    }).catchError((error) {
-    print(StateError);
-    });
-}           
+        dio.post(url, data: data).then((response) {
+        print(response.data[0]['Transcript']);
+        print(response.data[0]['Sentiment']);
+        print(response.data[0]['Score'].toString());
+        }).catchError((error) {
+        print(StateError);
+        });
+    }           
                         </code>
                     </pre>
                 </div>
