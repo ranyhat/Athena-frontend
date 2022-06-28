@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"> 
     <link rel="stylesheet" href="snip.css">
     <link rel="stylesheet" href="prism.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
@@ -16,9 +15,9 @@
 <body>
     
      <!-- Navigation Bar -->
-    <nav id="home" class="navbar navbar-expand-md bg-primary bg-gradient navbar-dark py-2 position: relative bg-opacity-4 fixed-top">
+    <nav class="navbar navbar-expand-md bg-primary bg-gradient navbar-dark py-2 position: relative bg-opacity-4 fixed-top">
         <div class="container">
-            <a href="#home" class="navbar-brand"> <h2 class="text-light">ATHENA</h2></a>
+            <a href="index.html" class="navbar-brand"> <h2 class="text-light">ATHENA</h2></a>
                 <button class="navbar-toggler" 
                 type="button" 
                 data-bs-toggle="collapse" 
@@ -28,16 +27,16 @@
                 <div class="collapse navbar-collapse" id="navmenu">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"> 
-                            <a href="#about-us" class="nav-link"><h5>About Us</h5></a>
+                            <a href="index.html#about-us" class="nav-link"><h5>About Us</h5></a>
                         </li>   
                         <li class="nav-item">
-                            <a href="#snip" class="nav-link"><h5>Code Snippets</h5></a>
+                            <a href="index.html#snip" class="nav-link"><h5>Code Snippets</h5></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#demo" class="nav-link"><h5>Demo</h5></a>
+                            <a href="index.html#demo" class="nav-link"><h5>Demo</h5></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#contact" class="nav-link"><h5>Contact Us</h5></a>
+                            <a href="index.html#contact" class="nav-link"><h5>Contact Us</h5></a>
                         </li>
                         <li class="nav-item">
                             <a href="https://athena-a6clm7lhrq-oa.a.run.app/assets/dummy.pdf" class="nav-link"><h5>Documentation</h5></a>
@@ -161,55 +160,55 @@
                     <div id="node" class="tabcontent">
                       <pre>
                         <code class="language-js">
-const fs = require('fs');
+    const fs = require('fs');
 
-const FormData = require('form-data')
-const axios = require('axios')
+    const FormData = require('form-data')
+    const axios = require('axios')
 
-var API_path = 'https://athena-a6clm7lhrq-oa.a.run.app/audio';
+    var API_path = 'https://athena-a6clm7lhrq-oa.a.run.app/audio';
 
-var audio_file_path = './audio.wav';
+    var audio_file_path = './audio.wav';
 
-var audio_file = fs.createReadStream(audio_file_path);
+    var audio_file = fs.createReadStream(audio_file_path);
 
-form_data = new FormData();
-form_data.append('file', audio_file);
+    form_data = new FormData();
+    form_data.append('file', audio_file);
 
-const res = axios.post(API_path, form_data, {
-    headers: form_data.getHeaders()
-}).then(res => {
-    console.log("Successfully sent");
-    console.log("Status Code: " + res.status);
-    console.log("Body: ", res.data[0].Transcript, "\nSentiment: ",
-    res.data[0].Sentiment, "\nScore: ", res.data[0].Score);
-}).catch(err => {
-    console.log("Error: " + err);
-})  
+    const res = axios.post(API_path, form_data, {
+        headers: form_data.getHeaders()
+    }).then(res => {
+        console.log("Successfully sent");
+        console.log("Status Code: " + res.status);
+        console.log("Body: ", res.data[0].Transcript, "\nSentiment: ",
+        res.data[0].Sentiment, "\nScore: ", res.data[0].Score);
+    }).catch(err => {
+        console.log("Error: " + err);
+    })  
                         </code>
                       </pre>
                     </div>
                     <div id="python" class="tabcontent hide">
                       <pre>
                             <code class="language-python">
-import requests
-import json
+    import requests
+    import json
 
-audio_file_path = './audio.wav'
-API_url = 'https://athena-a6clm7lhrq-oa.a.run.app/audio'
+    audio_file_path = './audio.wav'
+    API_url = 'https://athena-a6clm7lhrq-oa.a.run.app/audio'
 
-audio_file = open(audio_file_path, 'rb')
-data = {'file': audio_file}
+    audio_file = open(audio_file_path, 'rb')
+    data = {'file': audio_file}
 
-try:
-    r = requests.post(API_url, files=data)
-    response = json.loads(r.text)
+    try:
+        r = requests.post(API_url, files=data)
+        response = json.loads(r.text)
 
-    print("Successfully sent")
-    print("Status Code:", r.status_code)
-    print("Body:", response[0]['Transcript'], "\nSentiment:",
-            response[0]['Sentiment'], "\nScore:", response[0]['Score'])
-except:
-    print("Error")      
+        print("Successfully sent")
+        print("Status Code:", r.status_code)
+        print("Body:", response[0]['Transcript'], "\nSentiment:",
+                response[0]['Sentiment'], "\nScore:", response[0]['Score'])
+    except:
+        print("Error")      
     
     
 
@@ -222,12 +221,12 @@ except:
                 <div id="dart" class="tabcontent hide">
                     <pre>
                           <code class="language-dart">
-  import 'package:main/main.dart' as main;
-  import 'dart:io';
-  import 'package:dio/dio.dart';
-  import 'package:path/path.dart';
+   import 'package:main/main.dart' as main;
+   import 'dart:io';
+   import 'package:dio/dio.dart';
+   import 'package:path/path.dart';
 
-  Future<void> main(List<String> arguments) async {
+   Future<void> main(List<String> arguments) async {
         var url = "https://athena-a6clm7lhrq-oa.a.run.app/audio";
         String filePath = './audio.wav';
         String fileName = filePath.split('/').last;
@@ -310,7 +309,6 @@ except:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/65360a6776.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.0/axios.min.js"></script>
 <script src="js/main.js"></script>
 </body>
